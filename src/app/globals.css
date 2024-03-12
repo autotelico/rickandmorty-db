@@ -37,10 +37,10 @@ body {
 
 .card {
   position: relative;
-  border: 3px solid black;
   width: min-content;
   min-height: 400px;
   background-color: #ddd;
+  border-radius: 0 0 15px 15px;
 }
 
 .card img {
@@ -95,6 +95,9 @@ Computadores: 768px ~ 1024px;
   .card img {
     width: 350px;
   }
+  .card-name {
+    font-size: 32px;
+  }
 }
 
 /* Computadores, laptops grandes, televisões, etc. */
@@ -107,5 +110,8 @@ Computadores: 768px ~ 1024px;
   }
   .card img {
     width: 450px;
+  }
+  .card-name {
+    font-size: 32px;
   }
 }

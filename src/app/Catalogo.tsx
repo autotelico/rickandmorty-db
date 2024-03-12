@@ -2,8 +2,8 @@
 // para renderizar seu conteúdo. Logo, tudo aqui vai 
 // renderizar no servidor, não no cliente.
 
-import { ReactElement } from "react";
 import Carta from './Carta'
+import BarraDePesquisa from './BarraDePesquisa';
 
 const Catalogo = async () => {
     
@@ -11,6 +11,7 @@ const Catalogo = async () => {
 
   return (
     <div id="main-container">
+      <BarraDePesquisa />
       <h1>Characters</h1>
       <div id="character-list">
         {/* Usa a API buscada */}
@@ -24,10 +25,17 @@ const Catalogo = async () => {
 
 // Busca a API para usar no Catalogo
 async function pegarAPI() {
-  const response = await fetch("https://rickandmortyapi.com/api/character");
-  const data = await response.json();
-  console.log("data", data);
-  return data;
+  try {
+    const response = await fetch("https://rickandmortyapi.com/api/character");
+    const data = await response.json();
+    console.log("data", data);
+    return data;
+  } catch (error) {
+    // Muda o elemento h1 para mostrar a mensagem de erro
+    const h1: HTMLHeadingElement = document.querySelector('h1')!
+    h1.textContent = 'Rick, não conseguimos encontrar os personagens :('
+    throw new Error(error)
+  }
 }
 
 export default Catalogo;

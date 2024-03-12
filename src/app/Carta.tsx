@@ -2,7 +2,7 @@
 // o cliente para renderizá-las.
 
 "use client"; // Possibilita uso de hooks do React
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 
 interface Characters {}
 
@@ -15,6 +15,7 @@ export default function Carta({ data }): ReactElement {
 
   // {imagem, nome, status, genero, localidade, origem}
   return (
+    // Mostra mais informações ao passar com o mouse por cima
     <div
       className="card"
       onMouseEnter={() => setShowMore(true)}
@@ -22,11 +23,11 @@ export default function Carta({ data }): ReactElement {
     >
       <img src={data.image} alt={data.name} />
       <div className="card-description">
-        <p>{data.name}</p>
+        <p className="card-name">{data.name}</p>
         {showMore && (
           <>
+            <p className="card-location">Location: {data.location.name}</p>
             <p>Gender: {data.gender}</p>
-            <p>Location: {data.location.name}</p>
             <p>Status: {data.status}</p>
             <p>Origin: {data.origin.name}</p>
           </>
