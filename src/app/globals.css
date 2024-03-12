@@ -1,8 +1,12 @@
-/* Iniciamos usando o design mobile-first, iniciando 
-pelos dispositivos de menor largura atualmente (320px). */
+/* Usaremos o design mobile first, iniciando 
+pelos dispositivos de menor largura atualmente (320px)
+e escalando gradualmente até os maiores dispositivos. */
+
+body {
+  margin: 0;
+}
 
 #main-container {
-  display: flex;
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -11,3 +15,97 @@ pelos dispositivos de menor largura atualmente (320px). */
   width: 300px;
 }
 
+#main-container h1 {
+  text-align: center;
+}
+
+#character-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: relative;
+  gap: 10px;
+}
+
+.card-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  border: 3px solid black;
+  width: min-content;
+  min-height: 400px;
+  background-color: #ddd;
+}
+
+.card img {
+  width: 200px; /* Alterando apenas a largura para manter a proporção */
+}
+
+.card-description p:first-of-type {
+  text-align: center;
+  font-weight: 700;
+}
+
+.card-description {
+  padding: 10px;
+}
+
+.card-button {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  font-size: 16px;
+}
+
+/* Os breakpoints utilizados são os seguintes: */
+
+/* 
+Celulares: 320px ~ 480px 
+Tablets: 480px ~ 768px
+Computadores: 768px ~ 1024px;
+*/
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  body {
+    background-color: lightblue;
+  }
+  #main-container {
+    min-width: 460px;
+  }
+  .card img {
+    width: 350px;
+  }
+}
+
+/* Tablets e laptops pequenos */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  body {
+    background-color: lightpink;
+  }
+  #main-container {
+    min-width: 750px;
+  }
+  .card img {
+    width: 350px;
+  }
+}
+
+/* Computadores, laptops grandes, televisões, etc. */
+@media screen and (min-width: 1025px) {
+  body {
+    background-color: hotpink;
+  }
+  #main-container {
+    width: 1000px;
+  }
+  .card img {
+    width: 450px;
+  }
+}
