@@ -2,18 +2,12 @@
 // o cliente para renderizá-las.
 
 "use client"; // Possibilita uso de hooks do React
-import { ReactElement, useState } from "react";
+import Link from "next/link";
+import { ReactElement, ReactNode, useState } from "react";
 
-interface Characters {}
-
-export default function Carta({ data }): ReactElement {
+export default function Carta({ data }: any): ReactNode {
   const [showMore, setShowMore] = useState(false);
 
-  function handleClick() {
-    setShowMore(!showMore);
-  }
-
-  // {imagem, nome, status, genero, localidade, origem}
   return (
     // Mostra mais informações ao passar com o mouse por cima
     <div
@@ -33,7 +27,12 @@ export default function Carta({ data }): ReactElement {
           </>
         )}
       </div>
-      {showMore && <button className="card-button">Read More</button>}
+      {/* 
+      Gostaria de saber: existe um event listener pra este caso abaixo?
+      Eu não sei se é a melhor prática aninhar o Link no botão. Qual é a
+      melhor prática neste caso?
+      */}
+      {showMore && <button className="card-button"><Link href={'/' + data.name}>Read More</Link></button>}
     </div>
   );
 }
