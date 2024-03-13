@@ -2,16 +2,18 @@ import { useSearchParams } from "next/navigation";
 import { ReactHTMLElement, useState } from "react";
 import Carta from "../Carta";
 
-export default async function Characters({ page, character }) {
+export default async function Characters({ page, character }: {
+    page: number, character: string
+}) {
   const data = await getData(page);
-  const filteredData = data.results.filter((char) =>
-    char.name.includes(character)
+  const filteredChars = data.results.filter((char) =>
+    char.name.toLowerCase().includes(character.toLowerCase())
   );
 
   return (
     <>
       {character
-        ? filteredData.map((char) => (
+        ? filteredChars.map((char) => (
             <>
               <Carta data={char} />
             </>
