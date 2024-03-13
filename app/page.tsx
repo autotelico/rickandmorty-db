@@ -1,12 +1,12 @@
 // Página principal
 
 "use client";
-import { Suspense, useState } from "react";
+import { ChangeEvent, Suspense, useState } from "react";
 import Characters from "./characters/Characters";
 
-export default function Page() {
-  const [page, setPage] = useState(1);
-  const [character, setCharacter] = useState("");
+export default function Page(): JSX.Element {
+  const [page, setPage] = useState<number>(1);
+  const [character, setCharacter] = useState<string>("");
 
   function loadPreviousPage() {
     if (page > 1) {
@@ -14,11 +14,11 @@ export default function Page() {
     }
   }
 
-  function loadNextPage() {
+  function loadNextPage(): void {
     if (page < 42) setPage((prevPage) => prevPage + 1);
   }
 
-  function handleChange(e) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>): void {
     setCharacter(e.target.value);
   }
 

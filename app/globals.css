@@ -56,7 +56,7 @@ body {
 }
 
 .card img {
-  width: 200px; /* Alterando apenas a largura para manter a proporção */
+  width: 200px; /* Alterando apenas a largura da imagem para manter a proporção */
 }
 
 .card-description p:first-of-type {
