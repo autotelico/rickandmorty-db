@@ -7,12 +7,13 @@ import Characters from "./characters/Characters";
 export default function Page(): JSX.Element {
   const [page, setPage] = useState<number>(1);
   const [character, setCharacter] = useState<string>("");
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  // const [windowWidth, setWindowWidth] = useState<number>(window?.innerWidth);
+  // to fix the window: https://stackoverflow.com/questions/75692116/next-js-13-window-is-not-defined
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  window.addEventListener("resize", () => {
-    setWindowWidth(window.innerWidth);
-  });
+  // window.addEventListener("resize", () => {
+  //   setWindowWidth(window.innerWidth);
+  // });
 
   document.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', () => {
@@ -41,7 +42,8 @@ export default function Page(): JSX.Element {
 
   return (
     <>
-      {windowWidth > 1024 && (
+    {/* Se houver window, ele vai renderizar isto */}
+      {window && window.innerWidth > 1024 && (
         <>
           <header>
             <img
