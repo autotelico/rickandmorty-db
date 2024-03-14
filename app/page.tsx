@@ -1,10 +1,11 @@
 // Página principal
 
 "use client";
-import { ChangeEvent, Suspense, useState } from "react";
+import { ChangeEvent, Suspense, useState, useEffect } from "react";
 import Characters from "./characters/Characters";
 
 export default function Page(): JSX.Element {
+  const [isClient, setIsClient] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   const [character, setCharacter] = useState<string>("");
   // const [windowWidth, setWindowWidth] = useState<number>(window?.innerWidth);
@@ -15,7 +16,11 @@ export default function Page(): JSX.Element {
   //   setWindowWidth(window.innerWidth);
   // });
 
-  if (typeof document !== 'undefined') {
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  if (isClient) {
     document.querySelectorAll("button").forEach((button) => {
       button.addEventListener("click", () => {
         if (button.textContent!.toLowerCase() === "Read More".toLowerCase()) {
@@ -45,7 +50,7 @@ export default function Page(): JSX.Element {
     <>
       {/* Se houver window, ele vai renderizar isto */}
 
-      {typeof window !== 'undefined' && window.innerWidth > 1024 && (
+      {isClient && window.innerWidth > 1024 && (
         <>
           <header>
             <img
@@ -93,8 +98,6 @@ export default function Page(): JSX.Element {
           <button className="page-button" onClick={loadNextPage}>
             Next Page
           </button>
-          {/* Aqui eu hardcodei a página limite, mas dá pra
-          pegar a quantidade de páginas no JSON e colocar ela aqui */}
           <h3>Page {page}/42</h3>
         </div>
         <div id="character-list">
@@ -103,7 +106,7 @@ export default function Page(): JSX.Element {
           </Suspense>
         </div>
       </div>
-      <button id="scroll-to-top-btn" onClick={() => typeof window !== 'undefined' && window.scrollTo(0, 0)}>
+      <button id="scroll-to-top-btn" onClick={() => isClient && window.scrollTo(0, 0)}>
         Scroll to Top
       </button>
     </>
