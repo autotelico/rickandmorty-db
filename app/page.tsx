@@ -6,30 +6,13 @@ import Characters from './characters/Characters';
 import './globals.css'
 
 export default function Page(): JSX.Element {
-  const [isClient, setIsClient] = useState<boolean>(false);
-  const [page, setPage] = useState<number>(1);
-  const [character, setCharacter] = useState<string>('');
-  // const [windowWidth, setWindowWidth] = useState<number>(window?.innerWidth);
-  // to fix the window: https://stackoverflow.com/questions/75692116/next-js-13-window-is-not-defined
-  const [showModal, setShowModal] = useState<boolean>(false);
-
-  // window.addEventListener("resize", () => {
-  //   setWindowWidth(window.innerWidth);
-  // });
+  const [isClient, setIsClient] = useState<boolean>(false); // Verifica se tem window
+  const [page, setPage] = useState<number>(1); // Página atual
+  const [character, setCharacter] = useState<string>(''); // Personagem buscado
 
   useEffect(() => {
     setIsClient(true);
   }, []);
-
-  if (isClient) {
-    document.querySelectorAll('button').forEach((button) => {
-      button.addEventListener('click', () => {
-        if (button.textContent!.toLowerCase() === 'Read More'.toLowerCase()) {
-          setShowModal(!showModal);
-        }
-      });
-    });
-  }
 
   function loadPreviousPage(): void {
     if (page > 1) {
@@ -49,8 +32,6 @@ export default function Page(): JSX.Element {
 
   return (
     <>
-      {/* Se houver window, ele vai renderizar isto */}
-
       <header>
         <img
           id="main-icon"
@@ -59,6 +40,7 @@ export default function Page(): JSX.Element {
         />{' '}
         <p id="dti-love">and dti s2💞✨✨✨</p>
       </header>
+      {/* Se houver window, ele vai renderizar isto */}
       {isClient && window.innerWidth > 1024 && (
         <>
           <div id="hero">
@@ -68,15 +50,6 @@ export default function Page(): JSX.Element {
                 Confira os principais dados dos personagens de Rick and Morty,
                 como seu nome, seu status, e muito mais abaixo!
               </h4>
-            </div>
-          </div>
-        </>
-      )}
-      {showModal && (
-        <>
-          <div id="modal">
-            <div id="character-info">
-              <p>THIS IS A CHAR</p>
             </div>
           </div>
         </>
