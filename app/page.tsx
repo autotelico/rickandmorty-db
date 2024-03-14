@@ -15,7 +15,7 @@ export default function Page(): JSX.Element {
   //   setWindowWidth(window.innerWidth);
   // });
 
-  if (document) {
+  if (typeof document !== 'undefined') {
     document.querySelectorAll("button").forEach((button) => {
       button.addEventListener("click", () => {
         if (button.textContent!.toLowerCase() === "Read More".toLowerCase()) {
@@ -102,7 +102,7 @@ export default function Page(): JSX.Element {
           </Suspense>
         </div>
       </div>
-      <button id="scroll-to-top-btn" onClick={() => window.scrollTo(0, 0)}>
+      <button id="scroll-to-top-btn" onClick={() => window && window.scrollTo(0, 0)}>
         Scroll to Top
       </button>
     </>
