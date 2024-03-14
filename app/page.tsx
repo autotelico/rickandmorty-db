@@ -44,7 +44,8 @@ export default function Page(): JSX.Element {
   return (
     <>
       {/* Se houver window, ele vai renderizar isto */}
-      {window && window.innerWidth > 1024 && (
+
+      {typeof window !== 'undefined' && window.innerWidth > 1024 && (
         <>
           <header>
             <img
@@ -102,7 +103,7 @@ export default function Page(): JSX.Element {
           </Suspense>
         </div>
       </div>
-      <button id="scroll-to-top-btn" onClick={() => window && window.scrollTo(0, 0)}>
+      <button id="scroll-to-top-btn" onClick={() => typeof window !== 'undefined' && window.scrollTo(0, 0)}>
         Scroll to Top
       </button>
     </>
