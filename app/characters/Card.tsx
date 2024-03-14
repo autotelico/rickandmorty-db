@@ -3,9 +3,21 @@
 
 "use client"; // Possibilita uso de hooks do React
 import { useState } from "react";
+import Link from "next/link";
 
-export default function Carta({ data }: any): JSX.Element {
-  const [showMore, setShowMore] = useState(false);
+export default function Card({
+  data,
+}: {
+  data: {
+    name: string;
+    image: string;
+    location: { name: string };
+    gender: string;
+    status: string;
+    origin: { name: string };
+  };
+}): JSX.Element {
+  const [showMore, setShowMore] = useState<boolean>(false);
 
   const handleMouseEnter = () => {
     setShowMore(true);
@@ -36,14 +48,11 @@ export default function Carta({ data }: any): JSX.Element {
           )}
         </div>
       </div>
-      {/* 
-      Gostaria de saber: existe um event listener pra este caso abaixo?
-      Eu não sei se é a melhor prática aninhar o Link no botão. Qual é a
-      melhor prática neste caso?
-      */}
-      <button className="card-button">
-        Read More
-      </button>
+      <Link href='?modal=true'>
+        <button className="card-button">
+          Read More
+        </button>
+      </Link>
     </div>
   );
 }

@@ -8,10 +8,20 @@ export default function Page(): JSX.Element {
   const [page, setPage] = useState<number>(1);
   const [character, setCharacter] = useState<string>("");
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   window.addEventListener("resize", () => {
-    setWindowWidth(window.innerWidth); 
+    setWindowWidth(window.innerWidth);
   });
+
+  document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => {
+      if (button.textContent!.toLowerCase() === 'Read More'.toLowerCase()) {
+        setShowModal(!showModal)
+      }
+      
+    })
+  })
 
   function loadPreviousPage(): void {
     if (page > 1) {
@@ -38,7 +48,8 @@ export default function Page(): JSX.Element {
               id="main-icon"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/800px-Rick_and_Morty.svg.png"
               alt=""
-            />
+            />{" "}
+            <p id="dti-love">and dti s2💞✨✨✨</p>
           </header>
           <div id="hero">
             <div id="hero-text">
@@ -51,15 +62,22 @@ export default function Page(): JSX.Element {
           </div>
         </>
       )}
-      <div id="search-div">
+      {showModal && (
+        <>
+          <div id="modal">
+          <div id="character-info">
+            <p>THIS IS A CHAR</p>
+          </div>
+        </div>
+        </>
+      )}
+      <div id="main-container">
         <input
           type="text"
           id="search-bar"
           placeholder="Buscar personagem"
           onChange={handleChange}
         />
-      </div>
-      <div id="main-container">
         <h1>Characters</h1>
         <div className="centralize">
           <button
@@ -71,8 +89,8 @@ export default function Page(): JSX.Element {
           <button className="page-button" onClick={loadNextPage}>
             Next Page
           </button>
-          {/* Aqui eu hardcodei a página limite, mas é possível
-          pegar a quantidade de páginas no JSON e colocá-la aqui */}
+          {/* Aqui eu hardcodei a página limite, mas dá pra
+          pegar a quantidade de páginas no JSON e colocar ela aqui */}
           <h3>Page {page}/42</h3>
         </div>
         <div id="character-list">
@@ -81,6 +99,7 @@ export default function Page(): JSX.Element {
           </Suspense>
         </div>
       </div>
+      <button id="scroll-to-top-btn" onClick={() => window.scrollTo(0, 0)}>Scroll to Top</button>
     </>
   );
 }
