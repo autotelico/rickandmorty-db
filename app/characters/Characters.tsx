@@ -1,6 +1,4 @@
-import { useSearchParams } from "next/navigation";
-import { ReactHTMLElement, useState } from "react";
-import Carta from "../Carta";
+import Carta from "./Carta";
 
 export default async function Characters({ page, character }: {
     page: number, character: string

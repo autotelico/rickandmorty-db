@@ -1,4 +1,4 @@
-/* Usaremos o design mobile first, iniciando 
+/* Usei o design mobile first, iniciando 
 pelos dispositivos de menor largura atualmente (320px)
 e escalando gradualmente até os maiores dispositivos. */
 
@@ -6,14 +6,110 @@ body {
   margin: 0;
 }
 
-#main-container {
-  justify-content: center;
+/* Seção header + hero */
+header {
+  height: 150px;
+  background-color: rgba(56, 180, 56, 0.872);
+  display: flex;
   align-items: center;
+  padding-left: 30px;
+}
+
+#main-icon {
+  height: 130px;
+}
+
+#hero {
+  color: white;
+  height: 500px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  background-image: url('../public/hero-image.png');
+  background-size: cover;
+  background-position-y: center;
+}
+
+#hero h2 {
+  font-size: 48px;
+}
+
+#hero h4 {
+  font-size: 24px;
+}
+
+#hero-text {
+  box-sizing: border-box;
+  width: 700px;
+  height: 500px;
+  position: absolute;
+  padding: 20px;
+  padding-left: 100px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#hero-text * {
+  position: relative;
+  top: 30%;
+  transform: translateY(-50%);
+}
+
+/* Seção de busca + personagens */
+
+#search-div {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  position: relative;
+  top: 40px;  
+  left: 60px;
+}
+
+#search-bar {
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 2px solid black;
+  height: 50px;
+  width: 400px;
+  padding: 10px;
+  padding-left: 15px;
+  font-size: 24px;
+}
+
+#search-bar::after {
+  content: url('../public/magnify.svg');
+  height: 20px;
+}
+
+#main-container {
   margin: auto;
   position: relative;
+  top: 50px;
   border: 3px solid black;
   width: 300px;
 }
+
+.centralize {
+  width: max-content;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 32px;
+}
+
+.centralize button {
+  font-size: 24px;
+  color: white;
+  background-color: indigo;
+  border: none;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 25px;
+  width: 200px;
+  cursor: pointer;
+}
+
 
 #main-container h1 {
   text-align: center;
@@ -38,21 +134,26 @@ body {
   align-items: center;
   margin: auto;
   position: relative;
-  gap: 10px;
-}
-
-.card-description {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  gap: 40px;
 }
 
 .card {
   position: relative;
   width: min-content;
   min-height: 400px;
+  height: max-content;
   background-color: #ddd;
   border-radius: 0 0 15px 15px;
+}
+
+.card button {
+
+}
+
+.card-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card img {
@@ -118,12 +219,18 @@ Computadores: 768px ~ 1024px;
     background-color: hotpink;
   }
   #main-container {
-    width: 1000px;
+    min-width: 1200px;
   }
+
+  #search-bar {
+    position: relative;
+    left: 250px;
+  }
+
   .card img {
-    width: 450px;
+    width: 250px;
   }
   .card-name {
-    font-size: 32px;
+    font-size: 24px;
   }
 }
