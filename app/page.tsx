@@ -15,14 +15,15 @@ export default function Page(): JSX.Element {
   //   setWindowWidth(window.innerWidth);
   // });
 
-  document.querySelectorAll('button').forEach(button => {
-    button.addEventListener('click', () => {
-      if (button.textContent!.toLowerCase() === 'Read More'.toLowerCase()) {
-        setShowModal(!showModal)
-      }
-      
-    })
-  })
+  if (document) {
+    document.querySelectorAll("button").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (button.textContent!.toLowerCase() === "Read More".toLowerCase()) {
+          setShowModal(!showModal);
+        }
+      });
+    });
+  }
 
   function loadPreviousPage(): void {
     if (page > 1) {
@@ -42,7 +43,7 @@ export default function Page(): JSX.Element {
 
   return (
     <>
-    {/* Se houver window, ele vai renderizar isto */}
+      {/* Se houver window, ele vai renderizar isto */}
       {window && window.innerWidth > 1024 && (
         <>
           <header>
@@ -67,10 +68,10 @@ export default function Page(): JSX.Element {
       {showModal && (
         <>
           <div id="modal">
-          <div id="character-info">
-            <p>THIS IS A CHAR</p>
+            <div id="character-info">
+              <p>THIS IS A CHAR</p>
+            </div>
           </div>
-        </div>
         </>
       )}
       <div id="main-container">
@@ -101,7 +102,9 @@ export default function Page(): JSX.Element {
           </Suspense>
         </div>
       </div>
-      <button id="scroll-to-top-btn" onClick={() => window.scrollTo(0, 0)}>Scroll to Top</button>
+      <button id="scroll-to-top-btn" onClick={() => window.scrollTo(0, 0)}>
+        Scroll to Top
+      </button>
     </>
   );
 }
