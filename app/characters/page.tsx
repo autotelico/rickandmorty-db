@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import "../globals.css";
-import "./characterStyles.css";
+import "../styles/globals.css";
+import "../styles/characterStyles.css";
 
 interface Data {
   status: string;

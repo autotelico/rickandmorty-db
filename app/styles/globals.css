@@ -31,7 +31,7 @@ header {
   user-select: none;
   color: white;
   height: 500px;
-  background-image: url("../public/hero-image.png");
+  background-image: url("../../public/images/hero-image.png");
   background-size: cover;
   background-position-y: center;
 }
