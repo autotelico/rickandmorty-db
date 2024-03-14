@@ -41,6 +41,5 @@ export const getData = async (page: number) => {
     `https://rickandmortyapi.com/api/character/?page=${page}`
   );
   const data = await response.json();
-  console.log(data);
   return data;
 };

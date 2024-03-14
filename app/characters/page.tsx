@@ -35,11 +35,11 @@ export default function CharacterPage({
       <p>Species: {searchParams.species}</p>
       <p>Gender: {searchParams.gender}</p>
       <img src={searchParams.image} alt={searchParams.name} />
-      <p>{searchParams.location}</p>
-      <p>{searchParams.origin}</p>
+      <p>Location: {searchParams.location}</p>
+      <p>Origin: {searchParams.origin}</p>
 
       <div id="other-characters">
-        
+
       </div>
     </div>
   );
