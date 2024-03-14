@@ -19,7 +19,7 @@ header {
   position: absolute;
   left: 476px;
   font-size: 32px;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   user-select: none;
 }
 
@@ -31,9 +31,6 @@ header {
   user-select: none;
   color: white;
   height: 500px;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   background-image: url("../public/hero-image.png");
   background-size: cover;
   background-position-y: center;
@@ -78,7 +75,6 @@ header {
 }
 
 #search-bar::after {
-  content: url("../public/magnify.svg");
   height: 20px;
 }
 
@@ -217,6 +213,18 @@ Computadores: 768px ~ 1024px;
   .centralize button:first-of-type {
     position: relative;
     top: -9px;
+  }
+  #main-icon {
+    height: 70px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #dti-love {
+    font-size: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;
   }
 }
 

@@ -1,12 +1,14 @@
 import Card from "./Card";
 
 interface Character {
+  id: number;
   name: string;
   image: string;
   location: { name: string };
   gender: string;
   status: string;
   origin: { name: string };
+  species: string;
 }
 
 export default async function Characters({
@@ -25,14 +27,10 @@ export default async function Characters({
     <>
       {character
         ? filteredChars.map((char: Character) => (
-            <>
-              <Card data={char} />
-            </>
+              <Card data={char} key={char.id} />
           ))
         : data.results.map((char: Character) => (
-            <>
-              <Card data={char} />
-            </>
+              <Card data={char} key={char.id}/>
           ))}
     </>
   );
