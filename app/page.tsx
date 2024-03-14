@@ -3,6 +3,7 @@
 'use client';
 import { ChangeEvent, Suspense, useState, useEffect } from 'react';
 import Characters from './characters/Characters';
+import './globals.css'
 
 export default function Page(): JSX.Element {
   const [isClient, setIsClient] = useState<boolean>(false);
