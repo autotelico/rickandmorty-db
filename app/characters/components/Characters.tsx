@@ -18,20 +18,17 @@ export default async function Characters({
   page: number;
   character: string;
 }) {
-  const data = await getData(page);
-  const filteredChars = data.results.filter((char: Character) =>
-    char.name.toLowerCase().includes(character.toLowerCase())
-  );
+  const data = character ? await getCharacter(character) : await getData(page);
+
+  // const filteredChars = data.results.filter((char: Character) =>
+  //   char.name.toLowerCase().includes(character.toLowerCase())
+  // );
 
   return (
     <>
-      {character
-        ? filteredChars.map((char: Character) => (
-              <Card data={char} key={char.id} />
-          ))
-        : data.results.map((char: Character) => (
-              <Card data={char} key={char.id}/>
-          ))}
+      {data.results.map((char: Character) => (
+        <Card data={char} key={char.name} />
+      ))}
     </>
   );
 }
@@ -41,5 +38,14 @@ export const getData = async (page: number) => {
     `https://rickandmortyapi.com/api/character/?page=${page}`
   );
   const data = await response.json();
+  return data;
+};
+
+const getCharacter = async (name: string) => {
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/character/?name=${name}`
+  );
+  const data = await response.json();
+  console.log(data);
   return data;
 };

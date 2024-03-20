@@ -38,7 +38,6 @@ export default function Page(): JSX.Element {
         />{" "}
         <p id="dti-love">and dti s2💞✨✨✨</p>
       </header>
-      {/* Se houver window, ele vai renderizar isto */}
           <div id="hero">
             <div id="hero-text">
               <h2>Filtro de Personagens</h2>
