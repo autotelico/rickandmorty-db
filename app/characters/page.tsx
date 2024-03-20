@@ -11,6 +11,7 @@ interface Data {
   location: string;
   name: string;
   image: string;
+  page: number;
 }
 
 export default function CharacterPage({
@@ -29,7 +30,7 @@ export default function CharacterPage({
         <p id="dti-love">and dti s2💞✨✨✨</p>
       </header>
       <div id="character-hero">
-        <Link href="/" style={{ textDecoration: "none" }}>
+        <Link href={`/`} style={{ textDecoration: "none" }}>
           <button id="back-home-btn">{"<"}</button>
         </Link>
         <h1 id="info-name">{searchParams.name}</h1>

@@ -17,15 +17,11 @@ export default function Page(): JSX.Element {
   }, []);
 
   function loadPreviousPage(): void {
-    if (page > 1) {
       setPage((prevPage) => prevPage - 1);
-    }
   }
 
   function loadNextPage(): void {
-    if (page < 42) {
       setPage((prevPage) => prevPage + 1);
-    }
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>): void {
@@ -43,8 +39,6 @@ export default function Page(): JSX.Element {
         <p id="dti-love">and dti s2💞✨✨✨</p>
       </header>
       {/* Se houver window, ele vai renderizar isto */}
-      {isClient && window.innerWidth > 1024 && (
-        <>
           <div id="hero">
             <div id="hero-text">
               <h2>Filtro de Personagens</h2>
@@ -54,8 +48,6 @@ export default function Page(): JSX.Element {
               </h4>
             </div>
           </div>
-        </>
-      )}
       <div id="main-container">
         <input
           type="text"
@@ -65,15 +57,15 @@ export default function Page(): JSX.Element {
         />
         <h1>Characters</h1>
         <div className="centralize">
-          <button
+          {page > 1 ? <button
             className="page-button btn btn-blue bg-blue-500"
             onClick={loadPreviousPage}
           >
             Previous Page
-          </button>
-          <button className="page-button" onClick={loadNextPage}>
+          </button> : <button style={{backgroundColor: 'white', cursor: "default"}}></button>}
+          {page < 42 ? <button className="page-button" onClick={loadNextPage}>
             Next Page
-          </button>
+          </button> : <button style={{backgroundColor: 'white', cursor: "default"}}></button>}
           <h3>Page {page}/42</h3>
         </div>
         <div id="character-list">

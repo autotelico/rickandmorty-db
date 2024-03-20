@@ -215,7 +215,7 @@ Computadores: 768px ~ 1024px;
     top: -9px;
   }
   #main-icon {
-    height: 70px;
+    height: 80px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -226,12 +226,24 @@ Computadores: 768px ~ 1024px;
     transform: translateX(-50%);
     top: 100px;
   }
+  #hero {
+    display: none;
+  }
 }
 
 /* Celulares, tablets */
 @media screen and (min-width: 481px) and (max-width: 768px) {
   #main-container {
     min-width: 460px;
+  }
+  #dti-love {
+    font-size: 24px;
+    left: 235px;
+    transform: translateX(-50%);
+    top: 90px;
+  }
+  #hero {
+    display: none;
   }
   #search-bar {
     width: 300px;
