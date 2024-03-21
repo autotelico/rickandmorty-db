@@ -20,10 +20,6 @@ export default async function Characters({
 }) {
   const data = character ? await getCharacter(character) : await getData(page);
 
-  // const filteredChars = data.results.filter((char: Character) =>
-  //   char.name.toLowerCase().includes(character.toLowerCase())
-  // );
-
   return (
     <>
       {data.results.map((char: Character) => (

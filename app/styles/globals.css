@@ -144,6 +144,15 @@ button {
   height: max-content;
   background-color: #ddd;
   border-radius: 0 0 15px 15px;
+  transition: transform 0.4s, height 0.4s;
+}
+
+.card:hover {
+  transform: scale(1.2);
+}
+
+.show-more {
+  display: none;
 }
 
 .card-description {
