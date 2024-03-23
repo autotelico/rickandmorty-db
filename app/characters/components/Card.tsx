@@ -1,9 +1,9 @@
 // Queremos que as cartas sejam mais dinâmicas. Logo, usaremos
 // o cliente para renderizá-las.
 
-'use client'; // Possibilita uso de hooks do React
-import { useState } from 'react';
-import Link from 'next/link';
+"use client"; // Possibilita uso de hooks do React
+import { useState } from "react";
+import Link from "next/link";
 
 interface Data {
   name: string;
@@ -27,28 +27,22 @@ export default function Card({ data }: { data: Data }): JSX.Element {
   };
   return (
     // Mostra mais informações ao passar com o mouse por cima
-    <div
-      className="card"
-      onMouseEnter={handleMouseEnter} // Usar CSS
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className="card">
       <img src={data.image} alt={data.name} />
       <div className="card-description">
         <p className="card-name">{data.name}</p>
         <div className="details">
-          {showMore && (
-            <>
-              <p className="card-location">Location: {data.location.name}</p>
-              <p>Gender: {data.gender}</p>
-              <p>Status: {data.status}</p>
-              <p>Origin: {data.origin.name}</p>
-            </>
-          )}
+          <div className="show-more">
+            <p className="card-location">Location: {data.location.name}</p>
+            <p>Gender: {data.gender}</p>
+            <p>Status: {data.status}</p>
+            <p>Origin: {data.origin.name}</p>
+          </div>
         </div>
       </div>
       <Link
         href={{
-          pathname: '/characters',
+          pathname: "/characters",
           query: {
             name: data.name,
             gender: data.gender,
@@ -65,4 +59,3 @@ export default function Card({ data }: { data: Data }): JSX.Element {
     </div>
   );
 }
-
