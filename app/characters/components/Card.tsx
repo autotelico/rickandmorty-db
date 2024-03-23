@@ -29,7 +29,7 @@ export default function Card({ data }: { data: Data }): JSX.Element {
     // Mostra mais informações ao passar com o mouse por cima
     <div
       className="card"
-      onMouseEnter={handleMouseEnter}
+      onMouseEnter={handleMouseEnter} // Usar CSS
       onMouseLeave={handleMouseLeave}
     >
       <img src={data.image} alt={data.name} />
