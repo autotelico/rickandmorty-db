@@ -36,7 +36,6 @@ export default function Page(): JSX.Element {
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/800px-Rick_and_Morty.svg.png"
           alt=""
         />{" "}
-        <p id="dti-love">and dti s2💞✨✨✨</p>
       </header>
           <div id="hero">
             <div id="hero-text">

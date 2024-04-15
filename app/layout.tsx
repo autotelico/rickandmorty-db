@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Rick and Morty Database",
-  description: "Find out all about your favorite characters here! By: dti digital",
+  description: "Find out all about your favorite characters here! By: Henrique Heron",
 };
 
 export default function RootLayout({
