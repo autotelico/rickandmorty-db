@@ -23,7 +23,7 @@ export default async function Characters({
   return (
     <>
       {data.results.map((char: Character) => (
-        <Card data={char} key={char.name} />
+        <Card data={char} key={char.id} />
       ))}
     </>
   );
